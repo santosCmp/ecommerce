@@ -5,6 +5,7 @@ require_once("vendor/autoload.php");
 //namesapces e nomes das classes
 use \Slim\Slim;
 use \Hcode\Page;
+use \Hcode\PageAdmin;
 // Slim usado para rotas
 $app = new Slim();
 
@@ -20,7 +21,16 @@ $app->get('/', function() {
 	$page->setTpl("index"); 
 
 });
-//tudo carregado? beleza então vamos rodar
+
+$app->get('/admin', function() {
+    
+	// a nova classe 
+	$page = new PageAdmin(); 
+
+	$page->setTpl("index"); 
+
+});
+
 $app->run();
 
  ?>
